@@ -1,10 +1,11 @@
-const http=require('http');
+const http = require('http');
 
-const name='Neha Parakh';
+const server = http.createServer((req, res) => {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('My name is Neha Parakh');
+  console.log('My name is Neha Parakh');
+});
 
-const server= http.createServer((req, res)=>{
- console.log(req)
-    console.log(name);
-})
-
-server.listen(4000);
+server.listen(4000, () => {
+  console.log('Server running at http://localhost:4000/');
+});
